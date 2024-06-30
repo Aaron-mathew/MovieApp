@@ -28,4 +28,3 @@ const Sidenav = () => {
 
 export default Sidenav
 
-// { 30:30 } 1st Video
