@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Sidenav = () => {
+
   return (
     <div className="w-[20%] h-full border-r-2 border-zinc-400 p-10">
       <h1 className='text-2xl text-white font-bold'>
