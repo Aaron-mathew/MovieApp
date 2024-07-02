@@ -24,4 +24,3 @@ const Header = ({data}) => {
 
 export default Header
 
-// { 1:48:32 } 1st Video
