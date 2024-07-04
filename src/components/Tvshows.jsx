@@ -7,20 +7,20 @@ import Cards from "./partials/Cards";
 import Topnav from "./partials/Topnav";
 import Dropdown from "./partials/Dropdown";
 
-const Movie = () => {
+const Tvshows = () => {
     const navigate = useNavigate();
-    const [category, setcategory] = useState("now_playing");
-    const [movie, setmovie] = useState([]);
+    const [category, setcategory] = useState("airing_today");
+    const [tv, settv] = useState([]);
     const [page, setpage] = useState(1);
     const [hasMore, sethasMore] = useState(true);
 
-    document.title = "ISTINGLI | Movies " + category.toLocaleUpperCase();
+    document.title = "ISTINGLI | Tv Shows " + category.toLocaleUpperCase();
     
-    const GetMovie = async () => {
+    const GetTv = async () => {
         try {
-            const { data } = await axios.get(`/movie/${category}?page=${page}`);
+            const { data } = await axios.get(`/tv/${category}?page=${page}`);
             if(data.results.length > 0){
-                setmovie((prevState) => [...prevState, ...data.results]);
+                settv((prevState) => [...prevState, ...data.results]);
                 setpage(page+1);
             } else {
                 sethasMore(false);
@@ -32,12 +32,12 @@ const Movie = () => {
       };
       
       const refreshHandler = () => {
-        if(movie.length ===  0){
-            GetMovie();
+        if(tv.length ===  0){
+            GetTv();
         } else {
             setpage(1);
-            setmovie([]);
-            GetMovie();
+            settv([]);
+            GetTv();
         }
       }
 
@@ -46,21 +46,21 @@ const Movie = () => {
       },[category])
 
 
-  return movie.length > 0 ? (
+  return tv.length > 0 ? (
     <div className='w-screen h-screen'>
         <div className='px-[5%] w-full flex items-center justify-between'>
-            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  Movie<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
+            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  tv<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
             <div className='flex items-center w-[80%]'>
                 <Topnav />
-                <Dropdown title="Category" options={["popular", "top_rated", "upcoming", "now_playing"]} func={(e) => setcategory(e.target.value)} />
+                <Dropdown title="Category" options={["on_the_air", "popular", "top_rated", "airing_today"]} func={(e) => setcategory(e.target.value)} />
                 <div className='w-[2%] '></div>
             </div>
         </div>
-        <InfiniteScroll dataLength={movie.length} next={GetMovie} hasMore={hasMore} loader={<h1>Loading...</h1>}>
-            <Cards data={movie} title={category} />
+        <InfiniteScroll dataLength={tv.length} next={GetTv} hasMore={hasMore} loader={<h1>Loading...</h1>}>
+            <Cards data={tv} title={category} />
         </InfiniteScroll>
     </div>
   ): <Loading />
 }
 
-export default Movie
+export default Tvshows
