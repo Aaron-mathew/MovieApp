@@ -49,7 +49,7 @@ const Tvshows = () => {
   return tv.length > 0 ? (
     <div className='w-screen h-screen'>
         <div className='px-[5%] w-full flex items-center justify-between'>
-            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  tv<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
+            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  Tv Shows<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
             <div className='flex items-center w-[80%]'>
                 <Topnav />
                 <Dropdown title="Category" options={["on_the_air", "popular", "top_rated", "airing_today"]} func={(e) => setcategory(e.target.value)} />

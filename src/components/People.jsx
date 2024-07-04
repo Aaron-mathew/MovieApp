@@ -49,7 +49,7 @@ const People = () => {
   return person.length > 0 ? (
     <div className='w-screen h-screen'>
         <div className='px-[5%] w-full flex items-center justify-between'>
-            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  person<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
+            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  People</h1>
             <div className='flex items-center w-[80%]'>
                 <Topnav />
                 <div className='w-[2%] '></div>
@@ -64,4 +64,3 @@ const People = () => {
 
 export default People
 
-// {1:21:52} 2nd Video
