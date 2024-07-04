@@ -15,6 +15,8 @@ const Trending = () => {
     const [page, setpage] = useState(1);
     const [hasMore, sethasMore] = useState(true);
     
+    document.title = "ISTINGLI | Trending " + category.toLocaleUpperCase();
+
     const GetTrending = async () => {
         try {
             const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
@@ -64,4 +66,3 @@ const Trending = () => {
 
 export default Trending
 
-// {52:10} 2nd Video
