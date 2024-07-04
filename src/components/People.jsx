@@ -7,21 +7,20 @@ import Cards from "./partials/Cards";
 import Topnav from "./partials/Topnav";
 import Dropdown from "./partials/Dropdown";
 
-
-const Popular = () => {
+const People = () => {
     const navigate = useNavigate();
-    const [category, setcategory] = useState("movie");
-    const [popular, setpopular] = useState([]);
+    const [category, setcategory] = useState("popular");
+    const [person, setperson] = useState([]);
     const [page, setpage] = useState(1);
     const [hasMore, sethasMore] = useState(true);
 
-    document.title = "ISTINGLI | Popular " + category.toLocaleUpperCase();
+    document.title = "ISTINGLI | People" + category.toLocaleUpperCase();
     
-    const GetPopular = async () => {
+    const GetPerson = async () => {
         try {
-            const { data } = await axios.get(`${category}/popular?page=${page}`);
+            const { data } = await axios.get(`/person/${category}?page=${page}`);
             if(data.results.length > 0){
-                setpopular((prevState) => [...prevState, ...data.results]);
+                setperson((prevState) => [...prevState, ...data.results]);
                 setpage(page+1);
             } else {
                 sethasMore(false);
@@ -33,12 +32,12 @@ const Popular = () => {
       };
       
       const refreshHandler = () => {
-        if(popular.length ===  0){
-            GetPopular();
+        if(person.length ===  0){
+            GetPerson();
         } else {
             setpage(1);
-            setpopular([]);
-            GetPopular();
+            setperson([]);
+            GetPerson();
         }
       }
 
@@ -47,22 +46,22 @@ const Popular = () => {
       },[category])
 
 
-  return popular.length > 0 ? (
+  return person.length > 0 ? (
     <div className='w-screen h-screen'>
         <div className='px-[5%] w-full flex items-center justify-between'>
-            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  Popular</h1>
+            <h1 className='text-2xl font-semibold text-zinc-400 '><i onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></i>  person<small className="ml-2 text-sm text-zinc-600">({category})</small></h1>
             <div className='flex items-center w-[80%]'>
                 <Topnav />
-                <Dropdown title="Category" options={["movie", "tv"]} func={(e) => setcategory(e.target.value)} />
                 <div className='w-[2%] '></div>
             </div>
         </div>
-        <InfiniteScroll dataLength={popular.length} next={GetPopular} hasMore={hasMore} loader={<h1>Loading...</h1>}>
-            <Cards data={popular} title={category} />
+        <InfiniteScroll dataLength={person.length} next={GetPerson} hasMore={hasMore} loader={<h1>Loading...</h1>}>
+            <Cards data={person} title={category} />
         </InfiniteScroll>
     </div>
   ): <Loading />
 }
 
-export default Popular
+export default People
 
+// {1:21:52} 2nd Video
