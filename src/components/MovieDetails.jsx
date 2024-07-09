@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncloadmovie, removemovie } from '../store/actions/movieActions';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import HorizontalCards from './partials/HorizontalCards';
 import Loading from './Loading';
 
@@ -25,7 +25,7 @@ const MovieDetails = () => {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-                }}  className='w-screen h-[150vh] px-[10%]'>
+                }}  className='relative w-screen h-[150vh] px-[10%]'>
       {/* Part 1 navigation */}
       <nav className='h-[10vh] w-full text-zinc-100 flex items-center gap-10 text-xl'>
         <Link onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></Link> 
@@ -95,7 +95,7 @@ const MovieDetails = () => {
       <h1 className=' text-3xl font-bold text-white'>Recommendations & Similar Stuff</h1>
       <HorizontalCards data={
         info.recommendations.length > 0 ? info.recommendations : info.similar} />
-
+      <Outlet />
     </div>
   ): <Loading /> 
 }
@@ -103,4 +103,3 @@ const MovieDetails = () => {
 export default MovieDetails
 
 
-// {2:03:34} 3rd Video
