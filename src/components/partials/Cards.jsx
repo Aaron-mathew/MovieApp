@@ -9,7 +9,6 @@ const Cards = ({ data, title }) => {
             <img className='shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] h-[40vh] object-cover' src={`https://image.tmdb.org/t/p/original/${ c.poster_path || c.backdrop_path || c.profile_path }`} alt="" />
             <h1 className='text-2xl text-zinc-300 mt-3 font-semibold '>
                 {c.name || c.title || c.original_name || c.original_title}
-
             </h1>
             {c.vote_average && (
                           <div className='absolute right-[-10%] bottom-[25%] rounded-full text-xl font-semibold bg-yellow-600 text-white w-[5vh] h-[5vh] flex justify-center items-center'>

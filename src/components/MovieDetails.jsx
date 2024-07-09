@@ -70,21 +70,21 @@ const MovieDetails = () => {
                   {info.watchproviders && info.watchproviders.flatrate &&(
                     <div className='flex gap-x-10 items-center text-white'>
                       <h1>Available on Platform</h1>
-                      {info.watchproviders.flatrate.map(w => (<img title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
+                      {info.watchproviders.flatrate.map((w,i) => (<img key={i} title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
                     </div>)}
 
 
                     {info.watchproviders && info.watchproviders.rent &&(
                     <div className='flex gap-x-10 items-center text-white'>
                       <h1>Available on Rent</h1>
-                      {info.watchproviders.rent.map(w => (<img title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
+                      {info.watchproviders.rent.map((w,i) => (<img key={i} title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
                     </div>)}
 
 
                     {info.watchproviders && info.watchproviders.buy &&(
                     <div className='flex gap-x-10 items-center text-white'>
                       <h1>Available to Buy</h1>
-                      {info.watchproviders.buy.map(w => (<img title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
+                      {info.watchproviders.buy.map((w,i) => (<img key={i} title={w.provider_name} className='w-[5vh] h-[5vh] object-cover rounded-md' src={`https://image.tmdb.org/t/p/original/${ w.logo_path }`} alt="" /> ))}
                     </div>)}
 
 
