@@ -53,8 +53,8 @@ const Trending = () => {
             <div className='flex items-center w-[80%]'>
                 <Topnav />
                 <Dropdown title="Category" options={["movie", 'tv', "all"]} func={(e) => setcategory(e.target.value)} />
-                <div className='w-[2%] '></div>
-                <Dropdown title="Durartion" options={["week", 'day']} func={(e) => setduration(e.target.value)} />
+                <div className='w-[2%]'></div>
+                <Dropdown title="Duration" options={["week", 'day']} func={(e) => setduration(e.target.value)} />
             </div>
         </div>
         <InfiniteScroll dataLength={trending.length} next={GetTrending} hasMore={hasMore} loader={<h1>Loading...</h1>}>

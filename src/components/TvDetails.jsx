@@ -25,7 +25,7 @@ const TvDetails = () => {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-                }}  className='relative w-screen h-[200vh] px-[10%]'>
+                }}  className='relative w-screen h-[209vh] px-[10%]'>
       {/* Part 1 navigation */}
       <nav className='h-[10vh] w-full text-zinc-100 flex items-center gap-10 text-xl'>
         <Link onClick={() => navigate(-1)} className="hover:text-[#6556CD] ri-arrow-left-line"></Link> 
@@ -118,4 +118,3 @@ const TvDetails = () => {
 
 export default TvDetails
 
-// {4th} Video
